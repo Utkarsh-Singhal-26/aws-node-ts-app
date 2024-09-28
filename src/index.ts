@@ -3,6 +3,7 @@ import express from "express";
 
 import ec2Router from "./routes/ec2.routes";
 import s3Router from "./routes/s3.routes";
+import vpcRouter from "./routes/vpc.routes";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 
 app.use("/ec2", ec2Router);
 app.use("/s3", s3Router);
+app.use("/vpc", vpcRouter);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server listening on http://localhost:${PORT}`)
