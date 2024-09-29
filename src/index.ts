@@ -3,6 +3,7 @@ import express from "express";
 
 import { logAPI } from "./middleware/cloudwatch-logs";
 
+import cloudWatchRouter from "./routes/cloudwatch.routes";
 import ec2Router from "./routes/ec2.routes";
 import lambdaRouter from "./routes/lambda.routes";
 import s3Router from "./routes/s3.routes";
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.use("/cloudwatch", cloudWatchRouter);
 app.use("/ec2", ec2Router);
 app.use("/s3", s3Router);
 app.use("/vpc", vpcRouter);
